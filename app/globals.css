@@ -1,0 +1,120 @@
+/* ---------- Design tokens (from the Eco-draft UI kit) ---------- */
+:root {
+  /* Colors */
+  --background-white: #f9faf7;
+  --black: #000000;
+  --black-50: rgba(0, 0, 0, 0.5);
+  --dark-grey-85: rgba(66, 66, 66, 0.85);
+  --light-green: rgba(139, 157, 119, 0.5);
+  --light-grey: #cdcfcd;
+  --medium-grey: #8a8a8a;
+  --white: #fdfdfd;
+  --white-73: rgba(255, 255, 255, 0.73);
+  --white-85: rgba(255, 255, 255, 0.85);
+  --yellow: #f8ae29;
+
+  /* Derived (kit colors resolved on the page background) */
+  --header-bg: #c2cbb7; /* light green 50% on background white */
+  --footer-bg: #333633; /* footer overlay resolved on background white */
+  --yellow-hover: #e89d12;
+  --error: #b3261e;
+  --card-bg: #f2f4ee; /* soft panel on the account pages */
+
+  /* Typography rule: Montserrat = buttons, H1, H2, headers. Lora = everything else. */
+  --font-heading: "Montserrat Variable", "Montserrat", system-ui, sans-serif;
+  --font-body: "Lora Variable", "Lora", Georgia, serif;
+
+  /* Shape and layout */
+  --radius-button: 8px;
+  --gutter: clamp(16px, 5.56vw, 80px);
+  --page-max: 1440px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-white);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: var(--font-heading);
+}
+
+/* Centered page container with the shared side gutter */
+.container {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Visually hidden but available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 8px 16px;
+  background: var(--yellow);
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: var(--radius-button);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}

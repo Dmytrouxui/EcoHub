@@ -1,0 +1,61 @@
+/* Page frame: profile + calendar on the left, posts in the middle, members + tags on the right */
+.shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "profile" "feed" "calendar" "members" "tags";
+  gap: 24px;
+  padding-block: 24px 56px;
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.feed {
+  grid-area: feed;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.calendar {
+  grid-area: calendar;
+}
+
+.members {
+  grid-area: members;
+}
+
+.tags {
+  grid-area: tags;
+}
+
+.leftStack,
+.rightStack {
+  display: contents;
+}
+
+@media (min-width: 1100px) {
+  .shell {
+    grid-template-columns: 272px minmax(0, 1fr) 272px;
+    grid-template-areas: "left feed right";
+    align-items: start;
+    padding-block: 32px 80px;
+  }
+
+  .leftStack,
+  .rightStack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .leftStack {
+    grid-area: left;
+  }
+
+  .rightStack {
+    grid-area: right;
+  }
+}

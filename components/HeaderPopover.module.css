@@ -1,0 +1,156 @@
+.wrap {
+  position: relative;
+}
+
+.button {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--black);
+  cursor: pointer;
+}
+
+.button:hover,
+.button[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 1px;
+}
+
+.panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: -8px;
+  z-index: 20;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.panelOpen {
+  display: block;
+}
+
+.title {
+  margin: 0 0 4px;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 4px;
+  border-radius: 999px;
+  background: var(--error);
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: min(420px, 60dvh);
+  margin: 8px -8px 0;
+  padding: 0 8px 0 8px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 8px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.item:hover {
+  background: var(--card-bg);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: -2px;
+}
+
+.itemNew {
+  background: var(--card-bg);
+}
+
+.itemText {
+  min-width: 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.itemText strong {
+  font-weight: 700;
+}
+
+.itemSnippet,
+.itemTime {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--dark-grey-85);
+}
+
+.itemSnippet {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.newDot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin: 6px 0 0 auto;
+  border-radius: 50%;
+  background: var(--error);
+}
+
+.message {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--dark-grey-85);
+}
+
+/* On phones the panel spans the screen width instead of hanging off the icon */
+@media (max-width: 520px) {
+  .panel {
+    position: fixed;
+    top: 72px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+    max-width: none;
+  }
+}

@@ -1,0 +1,105 @@
+.page {
+  padding-block: 32px 48px;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Photo: hidden on mobile and tablet */
+.photo {
+  display: none;
+}
+
+/* Left column with custom content (profile picture upload): visible on every screen size */
+.aside {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 416px;
+}
+
+/* Right column: heading + form */
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 416px;
+  min-width: 0;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.25rem, 6vw, 1.75rem); /* shrinks on small phones so it stays on one line */
+  white-space: nowrap; /* "Welcome back to EcoHub" stays on one line */
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--black);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-grey-85);
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding-block: 64px 80px;
+  }
+
+  .panel {
+    gap: 32px;
+  }
+
+}
+
+/* Desktop: photo on the left, heading and form on the right (416px each, 24px apart) */
+@media (min-width: 960px) {
+  .page {
+    padding-block: clamp(64px, 8vw, 116px);
+  }
+
+  .layout {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; /* a shorter form sits in the middle of the photo's height */
+  }
+
+  .aside {
+    flex: 0 0 416px;
+    width: 416px;
+    min-height: 408px;
+    align-self: stretch;
+  }
+
+  .photo {
+    display: block;
+    position: relative;
+    flex: 0 0 416px;
+    width: 416px;
+    min-height: 408px;
+    align-self: stretch; /* as tall as the form next to it */
+    overflow: hidden;
+    border-radius: 16px;
+    background: #dfe6d6; /* shows while the photo loads */
+  }
+
+  /* The photo is wider than the card, so it is cropped.
+     object-position keeps the two volunteers in view. */
+  .photoImage {
+    object-fit: cover;
+    object-position: 30% 50%;
+  }
+}

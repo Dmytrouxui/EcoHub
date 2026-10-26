@@ -1,0 +1,206 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 32px 16px;
+  border-radius: 16px;
+  background: var(--card-bg);
+}
+
+.title {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--black);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+  scroll-margin-top: 24px;
+}
+
+.tileTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.subTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--dark-grey-85);
+}
+
+.error,
+.success {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.error {
+  color: var(--error);
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: var(--radius-button);
+  background: var(--yellow);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.linkButton:hover {
+  background: var(--yellow-hover);
+}
+
+.linkButton:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
+
+/* ---------- Switches ---------- */
+.switches {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.switches li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 12px;
+  border-top: 1px solid var(--light-grey);
+}
+
+.switchLabel {
+  margin: 0 0 2px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--medium-grey);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.switchOn {
+  background: var(--light-green);
+}
+
+.knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+  transition: transform 0.15s;
+}
+
+.switchOn .knob {
+  transform: translateX(20px);
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
+
+/* ---------- Privacy ---------- */
+.form,
+.danger,
+.confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.form > button,
+.danger > button {
+  align-self: flex-start;
+}
+
+.danger {
+  margin-top: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--light-grey);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dangerButton {
+  background: var(--error);
+  color: var(--white);
+}
+
+.dangerButton:hover:not(:disabled) {
+  background: var(--error);
+  filter: brightness(0.92);
+}
+
+.dangerButton:disabled {
+  opacity: 0.5;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 40px 32px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}

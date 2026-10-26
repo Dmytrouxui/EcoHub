@@ -1,0 +1,157 @@
+.footer {
+  background: var(--footer-bg);
+  color: var(--light-grey);
+}
+
+.inner {
+  padding-block: 32px 24px;
+}
+
+/* ---------- Columns ---------- */
+/* Mobile: logo and contact span the full width, the link columns sit two per row */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 16px;
+}
+
+.brand,
+.contact {
+  grid-column: 1 / -1;
+}
+
+.column {
+  min-width: 0;
+}
+
+.heading {
+  margin: 0 0 16px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+.links {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: inline-block;
+  padding: 6px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--light-grey);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* ---------- Contact ---------- */
+.contactList {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--white-73);
+  line-height: 24px;
+}
+
+.contactList img {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.contactList a {
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contactList a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.contactList address {
+  font-style: normal;
+}
+
+/* ---------- Bottom bar ---------- */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--light-grey);
+}
+
+.copy {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--light-grey);
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Tablet: two columns ---------- */
+@media (min-width: 640px) {
+  .inner {
+    padding-block: 40px 24px;
+  }
+
+  .grid {
+    gap: 40px 32px;
+  }
+
+  .contact {
+    grid-column: auto;
+  }
+}
+
+/* ---------- Desktop: logo + 3 link columns + contact in one row ---------- */
+@media (min-width: 1200px) {
+  /* Column widths follow the Figma layout (322 / 215 / 256 / 189 / 298 at 1440px) */
+  .grid {
+    grid-template-columns: 322fr 215fr 256fr 189fr 298fr;
+    gap: 0 24px;
+  }
+
+  .brand {
+    grid-column: auto;
+  }
+
+  .contact {
+    grid-column: auto;
+  }
+
+  .bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+}

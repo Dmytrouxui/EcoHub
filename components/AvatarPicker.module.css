@@ -1,0 +1,118 @@
+.picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Phones and tablets: a round picture above the form */
+.box {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 128px;
+  height: 128px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--light-grey);
+}
+
+.placeholder {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 20px;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.action span {
+  text-decoration: underline;
+}
+
+.error {
+  max-width: 320px;
+  margin: 0;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  color: var(--error);
+}
+
+/* Desktop: a large rounded box as tall as the form, "Add photo" underneath */
+@media (min-width: 960px) {
+  .picker {
+    flex: 1;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .box {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    min-height: 340px;
+    border-radius: 16px;
+  }
+
+  .placeholder {
+    width: 80%;
+    height: 80%;
+  }
+
+  .action {
+    min-height: 24px;
+  }
+}
+
+/* Round variant (profile page): a circle, same size on every screen */
+.round .box {
+  width: min(100%, 340px);
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1;
+  flex: none;
+  border-radius: 50%;
+}
+
+@media (min-width: 960px) {
+  .round {
+    flex: none;
+    width: 100%;
+  }
+
+  .round .box {
+    flex: none;
+    width: min(100%, 340px);
+    min-height: 0;
+    border-radius: 50%;
+  }
+}

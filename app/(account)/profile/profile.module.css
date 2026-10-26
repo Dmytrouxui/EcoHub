@@ -1,0 +1,138 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 32px 16px 32px;
+  border-radius: 16px;
+  background: var(--card-bg);
+}
+
+.title {
+  margin: 0 0 32px;
+  text-wrap: balance;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--black);
+}
+
+.loading {
+  margin: 0;
+  text-align: center;
+  color: var(--dark-grey-85);
+}
+
+.form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between; /* spreads the sections evenly when the card is taller than its content */
+  gap: 48px;
+}
+
+.top,
+.bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.photoColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.label {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--dark-grey-85);
+}
+
+.counter {
+  margin: -4px 0 0;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--dark-grey-85);
+}
+
+.save {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 306px;
+  margin-inline: auto;
+}
+
+.formError,
+.success {
+  margin: 0;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.formError {
+  color: var(--error);
+}
+
+.success {
+  color: var(--black);
+}
+
+.bottom textarea {
+  min-height: 200px;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 48px 40px 48px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 48px;
+  }
+}
+
+@media (min-width: 900px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center; /* fields are centred next to the photo */
+    gap: 40px;
+  }
+
+  .bottom {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 40px;
+  }
+}

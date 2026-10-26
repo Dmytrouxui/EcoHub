@@ -1,0 +1,120 @@
+.wrap {
+  position: relative;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: transparent;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 1px;
+}
+
+/* The panel starts right under the icon (no gap, so hovering keeps it open) */
+.panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  min-width: 168px;
+  padding-top: 4px;
+}
+
+.panelOpen {
+  display: block;
+}
+
+.list {
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--black);
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.item:hover,
+.item:focus-visible {
+  background: var(--light-green);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: -2px;
+}
+
+/* Signed in: name and round photo */
+.buttonProfile {
+  width: auto;
+  gap: 12px;
+  padding: 0 4px;
+}
+
+.name {
+  display: none;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--black);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--light-grey);
+}
+
+.avatarEmpty {
+  display: grid;
+  place-items: center;
+}
+
+.avatarEmpty img {
+  width: 70%;
+  height: 70%;
+}
+
+@media (min-width: 768px) {
+  .name {
+    display: block;
+  }
+}
